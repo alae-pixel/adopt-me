@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Tails | Pet Adoption 🐾</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="navigate('page-list')">🐾 HappyTails</div>
+            <nav class="nav-links">
+                <span onclick="navigate('page-welcome')">Home</span>
+                <span onclick="navigate('page-list')">Explore Pets</span>
+                <span onclick="navigate('page-about')">About Us</span>
+                <span onclick="navigate('page-contact')">Contact</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <div id="page-welcome" class="page active">
+            <section class="welcome-hero">
+                <div class="welcome-header">
+                    <h1 class="main-title">Where Happy Tails Begin</h1>
+                </div>
+                <div class="watercolor-banner">
+                    <img src="Children's Art FARM BUDDIES Archival Art by trafalgarssquare.jpg" alt="Watercolor farm animals banner" class="banner-img">
+                </div>
+
+                <div class="welcome-action">
+                    <p class="welcome-text">Every animal has a story waiting to be shared. Are you ready to find your perfect companion and start a new chapter together?</p>
+                    <button type="button" class="btn welcome-btn" onclick="navigate('page-list')">
+                        Explore Our Pets 🐾
+                    </button>
+                </div>
+            </section>
+        </div>
+        <div id="page-list" class="page">
+            <section class="hero-section">
+                <span class="main-emoji">🐶</span>
+                <h1>Your new best friend is waiting</h1>
+                <p class="subtitle">Scroll through fluffballs and tail-waggers looking for love and a forever home.</p>
+            </section>
+            <div class="pet-grid">
+                <div class="pet-card" onclick="showDetails('Sunny', '6 months • Female', '🐱', 'Always happy to see you and loves leaf-chasing adventures. Looking for a human who gives belly rubs daily and showers her with affection.')">
+                    <span class="pet-card-icon">🐱</span>
+                    <div class="pet-info">
+                        <h3>Sunny</h3>
+                        <p>6 months • Female</p>
+                    </div>
+                </div>
+                <div class="pet-card" onclick="showDetails('Buddy', '3 months • Male', '🐶', 'Super energetic and friendly pup who loves running in the park, learning new tricks, and playing with kids.')">
+                    <span class="pet-card-icon">🐶</span>
+                    <div class="pet-info">
+                        <h3>Buddy</h3>
+                        <p>3 months • Male</p>
+                    </div>
+                </div>
+                <div class="pet-card" onclick="showDetails('Milo', '1 year • Male', '🐰', 'A gentle little companion who loves munching on crunchy carrots and taking long cozy naps in the shade.')">
+                    <span class="pet-card-icon">🐰</span>
+                    <div class="pet-info">
+                        <h3>Milo</h3>
+                        <p>1 year • Male</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="page-about" class="page">
+            <section class="about-section">
+                <h2>About Happy Tails</h2>
+                <p class="subtitle">Connecting loving families with pets in need since 2018.</p>
+                <div class="about-content">
+                    <div class="about-card">
+                        <h3>Our Mission</h3>
+                        <p>We believe every animal deserves a safe, loving home. Our dedicated team works around the clock to rescue, rehabilitate, and rehome pets of all shapes and sizes.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Why Adopt?</h3>
+                        <p>Adoption saves lives. When you bring a Happy Tails pet into your home, you aren't just gaining a companion—you're giving a second chance to a beautiful soul.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="page-contact" class="page">
+            <section class="contact-section">
+                <h2>Get In Touch</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <div class="contact-method">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                <strong>Address</strong>
+                                <p>123 Massinissa Road, Constantine</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <span class="contact-icon">📞</span>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>0672 42 12 63</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <span class="contact-icon">✉️</span>
+                            <div>
+                                <strong>Email</strong>
+                                <p>hello@happytailscenter.org</p>
+                            </div>
+                        </div>
+            </div>
+
+                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully! 🐾');">
+                        <div class="form-group">
+                            <label for="contact-name">Your Name</label>
+                            <input type="text" id="contact-name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Your Email</label>
+                            <input type="email" id="contact-email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" rows="4" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message ✉️</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <div id="page-details" class="page">
+            <div class="details-wrapper">
+                <div class="pet-detail-card">
+                    <span id="detail-icon" class="detail-icon">🐱</span>
+                    <div class="detail-content">
+                        <div class="detail-name" id="detail-name">Sunny</div>
+                        <div class="detail-meta" id="detail-meta">6 months • Female</div>
+                        <p id="detail-desc" class="detail-desc">Always happy to see you and loves leaf-chasing adventures...</p>
+                        <button type="button" class="btn" onclick="confirmAdoption()">
+                            Adopt me 🐾
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-confirmed" class="page">
+            <div class="confirmed-wrapper">
+                <span class="success-emoji">🎉</span>
+                <h1>Adoption Visit Confirmed!</h1>
+                <p>We are absolutely thrilled! Your request has been securely processed.</p>
+                <div class="success-box">
+                    <div class="info-row">📍 <strong>Shelter:</strong> Happy Tails Center HQ</div>
+                    <div class="info-row">🐾 <strong>Pet Friend:</strong> <span id="confirmed-pet-name">Sunny</span></div>
+                    <div class="info-row">📅 <strong>Suggested Appointment:</strong> Tomorrow at 2:00 PM</div>
+                    <div class="status-badge">✓ Confirmed</div>
+                </div>
+                <button type="button" class="btn accent-btn" onclick="navigate('page-list')">
+                    Got it, take me back!
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 HappyTails Rescue — Powered by treats, belly rubs, and happily-ever-afters.</p>
+            <p class="footer-link">hello@happytailscenter.org
+
+</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
