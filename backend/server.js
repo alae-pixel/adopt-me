@@ -1,27 +1,22 @@
-// server.js
-const express = require('express');
-const cors = require('cors');
-const connectDB = require('./db');
-const petRoutes = require('./petRoutes');
-const errorHandler = require('./errorMiddleware');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import connectDB from './config/db.js';
+import petRoutes from './routes/petRoutes.js';
 
-// الاتصال بقاعدة البيانات
+dotenv.config();
 connectDB();
 
 const app = express();
 
-// Middlewares أساسية لمعالجة البيانات القادمة من الـ Frontend والـ CORS
-app.use(cors()); // للسماح للفرونت اند بالاتصال بالباك اند إذا كانا على المنفذين مختلفين
+app.use(cors());
 app.use(express.json());
 
-// توجيه المسارات
-app.use('/api/pets', petRoutes);
 
-// برمجية معالجة الأخطاء (يجب أن تكون في النهاية)
-app.use(errorHandler);
+app.use('/api/pets', petRoutes);
+app.get('/', (req, res) => {
+    res.send('🐾 Happy Tails API is running smoothly...');
+});
 
 const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server sprinting on port ${PORT}`));
